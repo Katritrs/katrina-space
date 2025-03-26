@@ -2,99 +2,211 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Katrina's Space</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background-color: #f5f5f7;
+      background-color: #ffffff;
       color: #1d1d1f;
       line-height: 1.6;
-      padding: 40px 20px;
+    }
+    nav {
+      background-color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 40px;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav h1 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    nav ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #1d1d1f;
+      font-weight: 500;
+      font-size: 16px;
+    }
+    nav ul li a:hover {
+      color: #0071e3;
+    }
+
+    header {
+      padding: 80px 20px 40px;
       text-align: center;
     }
-    h1 {
+    header h2 {
       font-size: 48px;
       font-weight: 600;
-      margin-bottom: 10px;
     }
-    p.subtitle {
+    header p {
       font-size: 20px;
       color: #6e6e73;
-      margin-bottom: 40px;
+      margin-top: 10px;
     }
-    .card-container {
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    section p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 18px;
+      color: #555;
+    }
+    .btn {
+      background-color: #0071e3;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #005bb5;
+    }
+    .module-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 24px;
-      max-width: 1000px;
+      gap: 40px;
+      max-width: 1100px;
       margin: 0 auto;
     }
-    .card {
-      background-color: #fff;
+    .module {
+      background-color: #f5f5f7;
       border-radius: 20px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-      width: 280px;
+      width: 300px;
       padding: 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
     }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    .module:hover {
+      transform: translateY(-8px);
     }
-    .card h2 {
+    .module h3 {
       font-size: 24px;
       margin-bottom: 10px;
     }
-    .card p {
+    .module p {
       font-size: 16px;
       color: #86868b;
-      margin-bottom: 20px;
     }
-    .card a {
-      text-decoration: none;
+    .module a {
+      display: inline-block;
+      margin-top: 16px;
       font-weight: 500;
       color: #0071e3;
+      text-decoration: none;
     }
     footer {
-      margin-top: 60px;
+      text-align: center;
+      padding: 40px 20px;
       font-size: 14px;
       color: #86868b;
+    }
+
+    @media screen and (max-width: 768px) {
+      section h2 { font-size: 32px; }
+      .module-container { flex-direction: column; align-items: center; }
+      nav { flex-direction: column; gap: 12px; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
-  <h1>Katrina's Space</h1>
-  <p class="subtitle">探索我的创作与收藏世界 🌍</p>
 
-  <div class="card-container">
-    <div class="card">
-      <h2>📖 博客</h2>
-      <p>我的文章与思考，记录生活与成长。</p>
-      <a href="#">访问博客 →</a>
+  <nav>
+    <h1>Katrina</h1>
+    <ul>
+      <li><a href="index_modular.html">首页</a></li>
+      <li><a href="blog.html">博客</a></li>
+      <li><a href="foodsafety.html">食品专业</a></li>
+      <li><a href="nav.html">导航页</a></li>
+      <li><a href="misc.html">杂项</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h2>Katrina's Space</h2>
+    <p>自由构建我的数字宇宙</p>
+  </header>
+
+  <section class="fade-up">
+    <h2>欢迎来到我的个人空间</h2>
+    <p>这里集合了我的博客、专业研究、导航资源，以及各种杂七杂八的小角落。希望你能在这里发现一些灵感 ✨</p>
+    <a class="btn" href="#">立即探索</a>
+  </section>
+
+  <section class="fade-up">
+    <div class="module-container">
+      <div class="module">
+        <h3>📖 博客</h3>
+        <p>记录思考与成长，探索内心与世界。</p>
+        <a href="blog.html">进入博客 →</a>
+      </div>
+      <div class="module">
+        <h3>🥼 食品专业</h3>
+        <p>食品质量与安全笔记，理论与实践结合。</p>
+        <a href="foodsafety.html">查看内容 →</a>
+      </div>
+      <div class="module">
+        <h3>🧭 导航页</h3>
+        <p>所有作品与链接入口，快速直达。</p>
+        <a href="nav.html">打开导航页 →</a>
+      </div>
+      <div class="module">
+        <h3>🎒 杂七杂八</h3>
+        <p>生活灵感、碎片记录与有趣实验。</p>
+        <a href="misc.html">随便看看 →</a>
+      </div>
     </div>
-    <div class="card">
-      <h2>📚 小说世界</h2>
-      <p>原创设定、角色档案与剧情走向。</p>
-      <a href="#">进入小说宇宙 →</a>
-    </div>
-    <div class="card">
-      <h2>🥼 食品笔记</h2>
-      <p>食品质量与安全相关知识、案例分享。</p>
-      <a href="#">查看笔记 →</a>
-    </div>
-    <div class="card">
-      <h2>📷 相册</h2>
-      <p>我的摄影、灵感采集与日常留影。</p>
-      <a href="#">浏览照片 →</a>
-    </div>
-  </div>
+  </section>
 
   <footer>
     © 2025 Katrina. All rights reserved.
   </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-up');
+    const options = { threshold: 0.3 };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, options);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
